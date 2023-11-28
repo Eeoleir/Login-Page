@@ -1,0 +1,62 @@
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { Button } from 'react-native-paper'
+
+
+export default function LandingPage() {
+  return (
+    <View style = {styles.landingContainer}>
+      <View style= {styles.logoContainer}>
+        <Image source = {require('../../../assets/pics/logo2.png')} 
+            style={styles.logo}
+        />
+      </View>
+      <View>
+        <Text style = {styles.description}>
+            Unlock Your Potential, Beat Distraction, and Stay Focused with Pokus!
+        </Text>
+      </View>
+      <View style = {styles.btnContainer}>
+        <Button icon="login" mode="contained" style={styles.btn}>
+          Login
+        </Button>
+        <Button icon="account-plus" mode="contained" style={{ ...styles.btn, backgroundColor: 'white' }}
+        labelStyle={{ color: 'black' }}>
+          Sign Up
+        </Button>
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+    landingContainer:{
+        flex: 1,
+        backgroundColor: '#120052',
+        flexDirection: 'column',
+        alignItems:'center',
+        padding:30
+    },
+    logoContainer:{
+        marginTop:'50%',
+        width:'80%'
+    },
+
+    logo:{no
+         left: 20,
+          
+    },
+    description:{
+        marginTop:50,
+        color: 'white',
+        textAlign: 'center'
+        
+    },
+    btnContainer:{
+        width:'80%'
+        
+    },
+    btn:{
+        padding:10,
+        marginTop: 25
+    }
+})
