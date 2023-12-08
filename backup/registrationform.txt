@@ -38,8 +38,6 @@ export default function RegistrationForms({ navigation }) {
       if (password !== repassword) {
         showToast("Please match the password");
         setIsError(true);
-        setPassword("");
-        setRepassword("");
         return false;
       }
 
@@ -55,10 +53,6 @@ export default function RegistrationForms({ navigation }) {
 
       if (result?.message != null) {
         showToast(result?.message);
-        setName("");
-        setEmail("");
-        setPassword("");
-        setRepassword("");
       } else {
         navigation.navigate("Login");
       }
@@ -66,6 +60,10 @@ export default function RegistrationForms({ navigation }) {
       showToast(e.toString());
     } finally {
       setLoading(false);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setRepassword("");
     }
   };
 

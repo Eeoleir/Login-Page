@@ -3,6 +3,7 @@ import { Button } from 'react-native-paper'
 import Logo from '../../../assets/pics/logo.png'
 
 export default function LandingPage({navigation}) {
+
   return (
     <View style = {styles.landingContainer}>
       <View style= {styles.logoContainer}>

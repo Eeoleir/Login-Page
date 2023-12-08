@@ -1,8 +1,30 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, BackHandler, Alert } from 'react-native'
 import { Button } from 'react-native-paper'
 import Logo from '../../../assets/pics/logo.png'
+import React, { useCallback, useEffect  } from 'react';
 
 export default function HomePage({navigation}) {
+
+  const handleBackPress = () => {
+    Alert.alert(
+      'Exit App',
+      'Do you really want to exit?',
+      [
+        { text: 'No', style: 'cancel' },
+        { text: 'Yes', onPress: () => BackHandler.exitApp() },
+      ],
+      { cancelable: false }
+    );
+    return true;
+  };
+
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', handleBackPress);
+    return () => {
+      backHandler.remove();
+    };
+  }, []);
+
   return (
     <View style = {styles.landingContainer}>
       <View style= {styles.logoContainer}>
